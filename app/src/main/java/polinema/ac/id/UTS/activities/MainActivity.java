@@ -1,18 +1,19 @@
-package polinema.ac.id.androiduistarter.activities;
+package polinema.ac.id.UTS.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import polinema.ac.id.androiduistarter.R;
-import polinema.ac.id.androiduistarter.fragments.Discountfragment;
-import polinema.ac.id.androiduistarter.fragments.Foodfragment;
-import polinema.ac.id.androiduistarter.fragments.Moviefragment;
+import polinema.ac.id.UTS.R;
+import polinema.ac.id.UTS.fragments.HomeFragment;
+import polinema.ac.id.UTS.fragments.UserFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loadFragment (new Foodfragment());
+        loadFragment (new HomeFragment());
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
     }
@@ -40,14 +41,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Fragment fragment = null;
         switch (menuItem.getItemId()) {
-            case R.id.action_food:
-                fragment = new Foodfragment();
+            case R.id.home:
+                fragment = new HomeFragment();
                 break;
-            case R.id.action_movie:
-                fragment = new Moviefragment();
-                break;
-            case R.id.action_discount:
-                fragment = new Discountfragment();
+            case R.id.user:
+                fragment = new UserFragment();
                 break;
         }
         return loadFragment(fragment);
@@ -56,5 +54,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
+    }
+
+    public void handlerStaticFragment(View view) {
+        Intent i = new Intent(MainActivity.this, StaticActivity.class);
+        startActivity(i);
     }
 }
