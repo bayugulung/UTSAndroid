@@ -161,8 +161,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
             @Override
             public void destroyItem(ViewGroup container, int position, Object object) {
-                View view = (View) object;
-                container.removeView(view);
+                View v = (View) object;
+                container.removeView(v);
             }
         }
 
