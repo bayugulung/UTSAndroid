@@ -56,8 +56,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     }
 
-    public void handlerStaticFragment(View view) {
-        Intent i = new Intent(MainActivity.this, StaticActivity.class);
+    public void btn_test(View view) {
+        Intent i = new Intent(this, StaticActivity.class);
+        startActivity(i);
+    }
+
+    public void next_fragment(View view) {
+        Intent i = new Intent(this, StaticActivity2.class);
         startActivity(i);
     }
 }

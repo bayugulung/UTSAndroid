@@ -129,9 +129,6 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         };
 
-        /**
-         * View pager adapter
-         */
         public class MyViewPagerAdapter extends PagerAdapter {
             private LayoutInflater layoutInflater;
 
